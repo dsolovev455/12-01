@@ -11,8 +11,6 @@
 
 Опишите таблицы (не менее 7), из которых состоит База данных:
 
-какие данные хранятся в этих таблицах,
-какой тип данных у столбцов в этих таблицах, если данные хранятся в PostgreSQL.
 Приведите решение к следующему виду:
 
 Сотрудники (
@@ -65,95 +63,90 @@
 решение к следующему виду: 
 
 
-staff (
+ФИО (
 
- staff_id primary_key,
+ ФИО идентификатор первичный ключ integer,
 
- FName varchar(50) ,
+ имя varchar(50),
  
- LName varchar(50) ,
- 
- Patronymic varchar(50),
+ фамилия varchar(50),
 
- divisions_id varchar(50),
- 
- Structura_id varchar(50),
- 
- date_off_id datetime,
- 
- position_id varchar(50),
- 
- pay_id numeric,
- 
- address_id varchar(50),
- 
- project_id varchar(50),
+ отчество varchar(50),
  
 )
 
-pay (
+оклад (
 
-pay_id primary_key
+ ФИО идентификатор первичный ключ integer,
 
-pay numeric
+ должность внешний ключ integer,
 
-)
-
-divisions (
-
-divisions_id primary_key
-
-department varchar(50)
-
-unit_group varchar(50)
-
-unit_group_type
-
-department_type
+ оклад numeric,
 
 )
 
-Structura (
+подразделение (
 
-Structura_id primary_key
+ подразделение идентификатор первичный ключ integer,
 
-Group varchar(50)
-
-Structura_type 
-
-Structura_title
+ структурное подразделение varchar(50),
 
 )
 
+адрес (
 
-date_off_employe (
+ ФИО идентификатор первичный ключ,
 
-date_off_id primary_key
+ регион внешний ключ integer,
 
-date datetime
+ город внешний ключ integer,
+
+ полный адрес varchar(50),
+
+)
+
+регион (
+
+ регион идентификатор первичный ключ integer,
+
+ регион varchar(50),
+
+)
+
+город (
+
+ город идентификатор первичный ключ integer,
+
+ город varchar(50),
+
+)
+
+дата приёма (
+
+ ФИО идентефикатор первичный ключ integer,
+
+ дата приёма datetime,
 
 )
 
 
-branch_address (
+проект (
 
-address_id primary_key
+ ФИО идентификатор первичный ключ integer,
 
-edge varchar(50)
+ проект varchar(50),
 
-city varchar(50)
-
-street varchar(50)
-
-house varchar(50)
+ подразделение внешний ключ integer,
 
 )
 
-project (
+должность (
 
-project_id primary_key
+ ФИО идентификатор первичный ключ integer,
 
-project_type
+ должность varchar(50),
+
+ подразделение внешний ключ integer,
 
 )
 
